@@ -5,10 +5,12 @@ import pluginVue from "eslint-plugin-vue";
 import { defineConfig } from "eslint/config";
 import eslintConfigPrettier from "eslint-config-prettier";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import pluginQuery from "@tanstack/eslint-plugin-query";
 
 export default defineConfig([
    tseslint.configs.recommended,
    pluginVue.configs["flat/essential"],
+   pluginQuery.configs["flat/recommended"],
    { files: ["**/*.vue"], languageOptions: { parserOptions: { parser: tseslint.parser } } },
    eslintPluginPrettierRecommended,
    eslintConfigPrettier,

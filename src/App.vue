@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-   <div></div>
+   <v-app></v-app>
 </template>
 
 <style scoped></style>
