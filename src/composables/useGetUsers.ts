@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/vue-query";
 import { getUsers } from "../api/userAPI.ts";
-import { type ComputedRef, type MaybeRef, toValue } from "vue";
+import { type MaybeRef, toValue } from "vue";
 import type { UserFilterInterface } from "@/interfaces/User.Interfaces.ts";
 
 interface useGetUsersProps {
    page: MaybeRef<number>;
-   filters: ComputedRef<UserFilterInterface>;
+   filters: MaybeRef<UserFilterInterface>;
 }
 
 export const useGetUsers = ({ page, filters }: useGetUsersProps) => {
