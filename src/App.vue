@@ -1,7 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import MainGroup from "@/components/MainGroup.vue";
+</script>
 
 <template>
-   <v-app></v-app>
+   <v-app>
+      <MainGroup />
+   </v-app>
 </template>
 
 <style scoped></style>
