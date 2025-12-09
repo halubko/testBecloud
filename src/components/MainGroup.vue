@@ -1,9 +1,11 @@
 <template>
-   <v-container>
+   <FilterGroup />
+   <v-main>
       <UserList />
-   </v-container>
+   </v-main>
 </template>
 
 <script setup lang="ts">
 import UserList from "@/components/users/UserList.vue";
+import FilterGroup from "@/components/filter/FilterGroup.vue";
 </script>
