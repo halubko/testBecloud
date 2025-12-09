@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { ref, watch } from "vue";
 
 const router = useRouter();
+const route = useRoute();
 
 const inputValue = ref();
 
@@ -11,9 +12,16 @@ watch(
    (value) => {
       router.push({
          query: {
+            ...route.query,
             search: value === "" ? undefined : value,
          },
       });
+   }
+);
+watch(
+   () => route.query.search,
+   (value) => {
+      inputValue.value = (value as string) || "";
    }
 );
 </script>
