@@ -11,7 +11,7 @@ const filtersComputed = computed(() => {
    return {
       minAge: route.query.minAge ? Number(route.query.minAge) : undefined,
       maxAge: route.query.maxAge ? Number(route.query.maxAge) : undefined,
-      gender: route.query.gender && (route.query.gender as string),
+      gender: route.query.gender ? (route.query.gender as string) : undefined,
    };
 });
 
