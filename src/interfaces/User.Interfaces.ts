@@ -23,3 +23,9 @@ export interface UserResponseInterfaces {
       page: number;
    };
 }
+
+export interface UserFilterInterface {
+   gender?: "male" | "female";
+   minAge?: number;
+   maxAge?: number;
+}
