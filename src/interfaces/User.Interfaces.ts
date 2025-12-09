@@ -26,6 +26,7 @@ export interface UserResponseInterfaces {
 
 export interface UserFilterInterface {
    gender?: "male" | "female";
+   search?: string;
    minAge?: number;
    maxAge?: number;
 }
