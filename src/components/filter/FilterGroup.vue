@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useForm } from "vee-validate";
 import { useRoute, useRouter } from "vue-router";
-import { watch } from "vue";
+import { computed, watch } from "vue";
 
 const router = useRouter();
 const route = useRoute();
@@ -16,8 +16,8 @@ watch(
    () => route.query,
    () => {
       setValues({
-         minAge: Number(route.query.minAge),
-         maxAge: Number(route.query.maxAge),
+         minAge: route.query.minAge ? Number(route.query.minAge) : null,
+         maxAge: route.query.maxAge ? Number(route.query.maxAge) : null,
          gender: route.query.gender,
       });
    }
@@ -45,10 +45,14 @@ const onClear = () => {
    resetForm();
    router.replace({ query: undefined });
 };
+
+const isFormEmpty = computed(() => {
+   return !minAge.value && !maxAge.value && !gender.value;
+});
 </script>
 
 <template>
-   <v-navigation-drawer location="left" permanent rounded="lg">
+   <v-navigation-drawer location="left" permanent rounded="lg" class="bg-transparent border-none">
       <v-form @submit.prevent="onSubmit" class="pa-4">
          <div class="text-subtitle-1 font-weight-bold mb-4">Filters</div>
 
@@ -87,8 +91,21 @@ const onClear = () => {
          </v-radio-group>
 
          <div class="d-flex justify-space-between">
-            <v-btn variant="tonal" @click="onClear" class="flex-grow-1 mr-2"> Clear </v-btn>
-            <v-btn type="submit" color="primary" variant="tonal" class="flex-grow-1">
+            <v-btn
+               variant="tonal"
+               @click="onClear"
+               class="flex-grow-1 mr-2"
+               :disabled="isFormEmpty"
+            >
+               Clear
+            </v-btn>
+            <v-btn
+               type="submit"
+               color="primary"
+               variant="tonal"
+               class="flex-grow-1"
+               :disabled="isFormEmpty"
+            >
                Submit
             </v-btn>
          </div>
