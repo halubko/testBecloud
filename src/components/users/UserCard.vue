@@ -2,6 +2,13 @@
 import type { UserInterface } from "@/interfaces/User.Interfaces.ts";
 import { toRefs } from "vue";
 import { formatUserName } from "@/utils/helpers.ts";
+import {
+   mdiGenderFemale,
+   mdiGenderMale,
+   mdiPhoneOutline,
+   mdiEmailOutline,
+   mdiCakeVariant,
+} from "@mdi/js";
 
 const props = defineProps<{
    user: UserInterface;
@@ -24,13 +31,13 @@ const { name, gender, phone, email, registered } = toRefs(props.user);
                variant="tonal"
                class="mr-2"
             >
-               <v-icon start icon="mdi-gender-female" v-if="gender === 'female'" />
-               <v-icon start icon="mdi-gender-male" v-else />
+               <v-icon start :icon="mdiGenderFemale" v-if="gender === 'female'" />
+               <v-icon start :icon="mdiGenderMale" v-else />
                {{ gender }}
             </v-chip>
 
             <v-chip size="small" color="purple" variant="tonal">
-               <v-icon start icon="mdi-cake-variant"></v-icon>
+               <v-icon start :icon="mdiCakeVariant"></v-icon>
                {{ registered.age }} years
             </v-chip>
          </v-card-subtitle>
@@ -42,7 +49,7 @@ const { name, gender, phone, email, registered } = toRefs(props.user);
          <v-list-item
             :href="`tel:${phone}`"
             :title="phone"
-            prepend-icon="mdi-phone-outline"
+            :prepend-icon="mdiPhoneOutline"
             rounded="lg"
             variant="tonal"
             class="mb-2"
@@ -55,7 +62,7 @@ const { name, gender, phone, email, registered } = toRefs(props.user);
          <v-list-item
             :href="`mailto:${email}`"
             :title="email"
-            prepend-icon="mdi-email-outline"
+            :prepend-icon="mdiEmailOutline"
             rounded="lg"
             variant="tonal"
          >

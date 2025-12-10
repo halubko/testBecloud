@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from "vue-router";
 import { ref, watch } from "vue";
+import { mdiMagnify } from "@mdi/js";
 
 const router = useRouter();
 const route = useRoute();
@@ -29,7 +30,7 @@ watch(
 <template>
    <v-text-field
       rounded="lg"
-      prepend-inner-icon="mdi-magnify"
+      :prepend-inner-icon="mdiMagnify"
       clearable
       placeholder="Search by name"
       variant="solo"
