@@ -1,6 +1,6 @@
 # Test task
 
-## [Перейти к деплою](https://testbeclouduser.vercel.app/)
+## [Перейти к деплою](https://test-becloud.vercel.app/)
 
 Реализовано приложение по получению рандомных пользователей на Vue3 + Vuetify
 
